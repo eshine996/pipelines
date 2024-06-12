@@ -7,7 +7,7 @@ class Pipeline:
     class Valves(BaseModel):
         PANDASAI_ENDPOINT: str = "https://pbmcron.service.xiaoyangedu.net/api/pandasai/chat"
         PROVIDER: str = "qianfan"
-        MODEL: str = "ERNIE-4.0-8K"
+        MODEL_NAME: str = "ERNIE-4.0-8K"
         # PANDASAI_ENDPOINT: str = "http://127.0.0.1:8000/api/pandasai/chat"
 
     def __init__(self):
@@ -30,7 +30,7 @@ class Pipeline:
         payload = {
             "chat_id": body.get("chat_id"),
             "message": user_message,
-            "model": self.valves.MODEL,
+            "model": self.valves.MODEL_NAME,
             "provider": self.valves.PROVIDER
         }
 
