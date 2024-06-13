@@ -27,13 +27,10 @@ class Pipeline:
     def pipe(
             self, user_message: str, model_id: str, messages: List[dict], body: dict
     ) -> Union[str, Generator, Iterator]:
-        print(model_id)
-        print(user_message)
-        print(body)
-        print(messages)
         payload = {
             "chat_id": body.get("chat_id"),
             "message": user_message,
+            "messages": messages,
             "model": self.valves.MODEL_NAME,
             "provider": self.valves.PROVIDER
         }
